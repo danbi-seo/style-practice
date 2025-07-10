@@ -1,0 +1,70 @@
+$color-yellow: #d7fa00;
+$color-gray: rgb(160, 160, 160);
+
+@mixin flex(
+  $display: flex,
+  $justify: start,
+  $align: stretch,
+  $direction: row,
+  $gap: 0,
+  $wrap: nowrap,
+  $padding: 0
+) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: $gap;
+  flex-wrap: $wrap;
+  padding: $padding;
+}
+
+@mixin font($weight: 400, $size: 13px) {
+  font-weight: $weight;
+  font-size: $size;
+}
+
+.header-container {
+  background-color: black;
+  @include flex($justify: space-between, $align: center, $padding: 10px 20px);
+
+  ul {
+    @include flex($justify: center, $align: center, $gap: 20px);
+  }
+}
+
+ul li {
+  list-style: none;
+  @include font;
+}
+
+section {
+  @include flex($wrap: wrap, $gap: 20px, $padding: 20px 40px);
+}
+
+.content-container {
+  @include flex($direction: column, $wrap: wrap, $align: flex-start, $gap: 5px);
+
+  img {
+    width: 300px;
+    border-radius: 10px;
+    margin-bottom: 3px;
+  }
+
+  span {
+    @include font($size: 12px);
+    color: $color-yellow;
+    border: 1px solid $color-yellow;
+    padding: 4px 5px;
+    border-radius: 3px;
+  }
+
+  div {
+    @include font($size: 18px, $weight: 600);
+  }
+
+  p {
+    @include font($size: 12px);
+    color: $color-gray;
+  }
+}

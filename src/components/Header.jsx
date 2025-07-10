@@ -1,12 +1,30 @@
-export default function Header() {
+import styled, { css } from 'styled-components';
+import { flexContainer } from './mixin';
+
+const HeaderContainer = styled.div`
+  ${flexContainer('flex', 'space-between', 'center', 'row', '20px', 'nowrap', '10px 20px')}
+  background-color: black;
+  color: white;
+
+  ul {
+    ${flexContainer('flex', 'center', 'center', 'row', '20px', 'nowrap')}
+    list-style: none;
+    margin: 0;
+  }
+`;
+
+
+const Header = () => {
   return (
-    <header className="header-container">
+    <HeaderContainer>
       <h1>OZ코딩스쿨</h1>
-      <ul className="menu-container">
+      <ul>
         <li>로그인</li>
         <li>회원가입</li>
         <li>내클래스</li>
       </ul>
-    </header>
+    </HeaderContainer>
   );
-}
+};
+
+export default Header;
